@@ -1,0 +1,103 @@
+/* 
+* @Author: Marte
+* @Date:   2018-09-16 12:19:31
+* @Last Modified by:   Marte
+* @Last Modified time: 2018-09-18 10:35:31
+*/
+*{
+    margin:0;
+    padding:0;
+}
+.bottom{
+    width:100%;
+    height:100%;
+}
+.bottom_t{
+        margin:0 auto;
+    box-sizing:border-box;
+    width:1322px;
+    height:216px;
+    background-color:#ffffff;
+    padding:43px 150px 37px 86px;
+
+}
+
+.bottom_t dl{
+    width:115px;
+    float:left;
+    margin:0 33px;
+    text-align:center;
+}
+.bottom_t dt{
+    line-height:32px;
+    font-size:14px;
+    height:32px;
+    /*font-weight:bold;*/
+    position:relative;
+
+}
+.bottom_t dt a{
+        color:black;
+}
+.bottom_t dt i{
+    position:absolute;
+    left:-10px;
+    top:0;
+}
+.bottom_t dd a{
+    color:#999999;
+    line-height:22px;
+    font-size:12px;
+    height:22px;
+}
+
+
+
+.bottom_c{
+        margin:0 auto;
+    width:1322px;
+    height:70px;
+    background-color:#3b87ee;
+}
+
+.bottom_c li:nth-child(1){
+    margin-left:40px;
+    margin-top:16px;
+    width:330px;
+    height:25px;
+    float:left;
+}
+.bottom_c li:nth-child(2){
+    margin-left:40px;
+    margin-top:16px;
+    width:470px;
+    height:25px;
+    float:left;
+}
+.bottom_c li:nth-child(3){
+    margin-left:40px;
+    margin-top:16px;
+    width:400px;
+    height:25px;
+    float:left;
+}
+
+.bottom_b{
+        margin:0 auto;
+    box-sizing:border-box;
+    width:1322px;
+    height:110px;
+    background-color:#ffffff;
+    padding-top:43px;    
+    padding-left:450px;
+
+}
+.bottom_b li{
+    float:left;
+}
+
+.bottom_b li a{
+    margin:0 10px;
+}
+
+.bottom_b p{margin-left:80px;}

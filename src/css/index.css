@@ -386,6 +386,11 @@
   border-bottom: 1px solid #ccc;
   background-color: blue;
 }
+#pinp .pinb {
+  width: 1200px;
+  height: 130px;
+  margin-top: 10px;
+}
 
 #floor001 {
   height: 680px;
