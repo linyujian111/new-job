@@ -2,7 +2,7 @@
 * @Author: Marte
 * @Date:   2018-09-15 09:48:08
 * @Last Modified by:   Marte
-* @Last Modified time: 2018-09-15 22:48:35
+* @Last Modified time: 2018-09-19 09:45:00
 */
 
 
@@ -24,34 +24,40 @@
 // }
 // 导航功能：
 $(function(){
+    console.log(888)
     $('.nav_l').on("click",function(){
         $('.nav_l .show1').toggle();
     })
+
+    $('#foot').load('../html/login.html')
+    console.log(4444)
+
 })
 
 
-let num=0;
-let len=$('.bannerul').get(1).children.length;
-console.log(len);
-var timer=setInterval(autoplay,2000)
 
-function autoplay(){
-    num++;
-    show();
+// let num=0;
+// let len=$('.bannerul').get(1).children.length;
+// console.log(len);
+// var timer=setInterval(autoplay,2000)
 
-}
+// function autoplay(){
+//     num++;
+//     show();
 
-function show(){
+// }
 
-    if(num>=len){
-        // console.log(len)
-        $(".bannerul").css('left',0);
+// function show(){
 
-        num==1;
+//     if(num>=len){
+//         // console.log(len)
+//         $(".bannerul").css('left',0);
 
-    }
-     $(".bannerul").animate({left:-num*$("#banner").width()},2000)
-}
+//         num==1;
+
+//     }
+//      $(".bannerul").animate({left:-num*$("#banner").width()},2000)
+// }
 
 
 
