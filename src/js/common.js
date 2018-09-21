@@ -150,3 +150,236 @@ function bind(ele,type,handler,isCapture){
 function one(ele,type,handler,isCapture){
 
 }
+
+// Cooie的操作
+var Cookie = {
+	/**
+	 * [获取cookie]
+	 * @param  {String} name [cookie名]
+	 * @return {String}      [返回name对应的cookie值]
+	 */
+	get:function(name){
+		// 获取所有cookie
+		var cookies = document.cookie;//
+
+		// 声明变量，用于保存结果
+		var res = '';
+
+		// 转成数组
+		cookies = cookies.split('; ');
+
+		// 遍历cookie找出name对应的值
+		for(var i=0;i<cookies.length;i++){
+			// 获取当前cookie
+			var arr = cookies[i].split('=');
+
+			// 找出name对应的cookie
+			if(arr[0] === name){
+				res = arr[1];
+			}
+		}
+
+		// 返回name对应的值
+		// 无则返回cookie
+		return res;
+	},
+	/**
+	 * [删除cookie]
+	 * @param  {[type]} name [description]
+	 * @return {[type]}      [description]
+	 */
+	remove:function(name){
+		var now = new Date();
+		now.setDate(now.getDate()-1);
+
+		// document.cookie = name + '=x;expires='+now.toUTCString()
+		this.set(name,'x',{expires:now});
+	},
+	/**
+	 * [设置Cookie]
+	 * @param {String} name  [cookie名]
+	 * @param {String} value [cookie值]
+	 * @param {[Object]} prop  [参数]
+	 	* expires
+	 	* path
+	 	* domain
+	 	* secure
+	 */
+	set:function(name,value,prop){
+		// cookie必写部分
+		var str = name + '=' + value;
+
+		// 不传参数时避免报错
+		if(prop === undefined){
+			prop = {};
+		}
+
+		// 有效期
+		if(prop.expires){
+			str += ';expires=' + prop.expires.toUTCString();
+		}
+
+		// 保存路径
+		if(prop.path){
+			str +=';path=' + prop.path
+		}
+
+		// 域名
+		if(prop.domain){
+			str +=';domain=' + prop.domain
+		}
+
+		// 安全性
+		if(prop.secure){
+			str += ';secure';
+		}
+
+		// 写入cookie
+		document.cookie = str;
+	},
+
+}
+
+// Cookie.get('username');//laoxie
+// Cookie.set('passowrd','123456',{path:'/'});//laoxie
+// Cookie.set('passowrd','abcd',{expires:now,path:'/',secure:true});//laoxie
+// Cookie.remove()
+
+
+// function animate(ele,attr,target){
+// 	// 避免多个属性时定时器覆盖
+// 	var timerName = attr + 'timer';
+
+// 	// 避免抖动
+// 	clearInterval(ele[timerName]);
+
+// 	ele[timerName] = setInterval(function(){
+// 		// 获取当前值
+// 		// var current = getComputedStyle(ele)[attr];
+// 		var current = getCss(ele,attr);//可能达到的值：200px,0.5,1,45deg,#1258bc
+
+// 		// 提取单位
+// 		var unit = current.match(/^([\d\.]+)([a-z]*)$/);//null
+
+// 		if(!unit){
+// 			// 如果得到null,意味动画无法进行，直接退出
+// 			clearInterval(ele.timer);
+// 			return;
+// 		}
+
+// 		// 提取值和单位
+// 		current = unit[1]*1;
+// 		unit = unit[2];
+
+// 		// 计算缓冲速度
+// 		var speed = (target-current)/10;//0.6->1，-0.6->-1
+
+// 		// speed不能为0
+// 		speed = speed<0 ? Math.floor(speed) : Math.ceil(speed);
+
+// 		// 针对opacity处理speed
+// 		if(attr === 'opacity'){
+// 			speed = speed<0 ? -0.05 : 0.05;
+// 		}
+
+// 		current += speed;
+
+// 		// 判断结束条件
+// 		if(current === target){
+// 			clearInterval(ele[timerName]);
+
+// 			// 重置目标值
+// 			current = target;
+// 		}
+
+// 		// 设置样式
+// 		ele.style[attr] = current + unit;
+// 	},30)
+// }
+
+
+
+// animate(item[i],'top',160)
+// animate(item[i],'top',5)
+
+
+function animate(ele,opt,callback){
+	// 记录属性数量
+	var timerLen = 0;
+
+	for(var attr in opt){
+		// 每循环一个属性+1
+		timerLen++;
+
+		(function(attr){
+			// 获取目标值
+			var target = opt[attr];
+
+			var timerName = attr + 'timer';
+
+			// 避免抖动
+			clearInterval(ele[timerName]);
+
+			ele[timerName] = setInterval(function(){
+				// 获取当前值
+				// var current = getComputedStyle(ele)[attr];
+				var current = getCss(ele,attr);//可能达到的值：-165px,200px,0.5,1,45deg,#1258bc
+
+				// 提取单位
+				var unit = current.match(/^([\-\d\.]+)([a-z]*)$/);//null
+
+				if(!unit){
+					// 如果得到null,意味动画无法进行，直接退出
+					clearInterval(ele.timer);
+					return;
+				}
+
+				// 提取值和单位
+				current = unit[1]*1;
+				unit = unit[2];
+
+				// 计算缓冲速度
+				var speed = (target-current)/10;//0.6->1，-0.6->-1
+
+				// speed不能为0
+				speed = speed<0 ? Math.floor(speed) : Math.ceil(speed);
+
+				// 针对opacity处理speed
+				if(attr === 'opacity'){
+					speed = speed<0 ? -0.05 : 0.05;
+				}
+
+				current += speed;
+
+				// 判断结束条件
+				if(current === target){
+					clearInterval(ele[timerName]);
+
+					// 重置目标值
+					current = target;
+
+					// 每结束一个定时器，数量-1
+					timerLen--;
+
+					// 执行背景颜色改变
+					if(typeof callback === 'function' && timerLen===0){
+						callback();
+					}
+				}
+
+				// 设置样式
+				ele.style[attr] = current + unit;
+			},30);
+
+		})(attr);
+	}
+}
+
+/**
+ * 数据类型判断终极版
+ * @param  {Every} data [任意数据类型]
+ * @return {String}      [数据类型字符串]
+ */
+function type(data){
+	return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+}

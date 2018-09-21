@@ -6,7 +6,7 @@
     //接收前端传回来的信息
     $username = isset($_POST['username'])?$_POST['username']:null;
     $password = isset($_POST['password'])?$_POST['password']:null;
-    $password = md5($password);
+    // $password = md5($password);
 
     $sql = "select * from user where username='$username'";
     $wSql = "insert into user(username,password) values('$username','$password')";
