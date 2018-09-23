@@ -185,14 +185,14 @@
   border-bottom: 1px dashed  white;
   overflow: hidden;
 }
-#nav .container .nav_l .show1 li:hover {
+#nav .container .nav_l .show1>li:hover {
   background-color: white;
 }
-#nav .container .nav_l .show1 li:hover a {
-  background-color: white;
+#nav .container .nav_l .show1>li:hover a {
+  /*background-color: white;*/
   color: black;
 }
-#nav .container .nav_l .show1 li a {
+#nav .container .nav_l .show1>li a {
   font-size: 14px;
   color: white;
   display: block;
@@ -217,7 +217,7 @@
 #nav .container .nav_l .show1 li .show2 .show2l {
   width: 690px;
   height: 100%;
-  background-color: blue;
+  background-color: white;
 }
 #nav .container .nav_c {
   width: 960px;
@@ -236,56 +236,25 @@
   background-color: skyblue;
 }
 #nav .container .nav_c li:hover a {
-  color: white;
+  /*color: white;*/
 }
-
+#nav .container .show2l li{
+  height:40px;
+  width:690px;
+  line-height:40px;
+}
+#nav .container .show2l li h5{
+  width:40px;
+  height:40px;
+}
+#nav .container .show2l li a{
+  font-size:20px;
+  width:50px;
+  height:40px;
+  border-right:1px solid #ccc;
+}
 
 /*...........................轮播*/
-/*.banner {
-  width: 1600px;
-  height: 480px;
-  margin: 0 auto;
-  background-color: green;
-  overflow: hidden;
-  border: 2px solid #ccc;
-  position: relative;
-  z-index:-1;
-}
-.banner .banner {
-  width: 900000px;
-  height: 480px;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.banner .banner li {
-  float: left;
-  width: 1600px;
-  height: 480px;
-  background-color: yellow;
-  overflow: hidden;
-}*/
-
-/*    .banner img{display: block;}
-    .banner{position:relative;width:1920px;height:320px;overflow:hidden;}
-    .banner ul{position:absolute;overflow:hidden;}
-    .banner ul li{float:left;}
-    .banner .page{position:absolute;right:0;bottom:0;padding:10px;}
-    .banner .page span{display:inline-block;margin:0 5px;width:30px;height:30px;line-height:30px;background-color:rgba(0,0,0,.6);text-align:center;color:#fff;border-radius: 50%;box-shadow:0 0 10px rgba(0,0,0,.5);}
-    .banner .page span.active{background-color: rgba(255,0,0,.8);}
-
-    .banner > span{display:none;position:absolute;left:0;top:50%;transform: translate(0,-50%);padding:50px 16px;background-color: rgba(0,0,0,0.5);color:#fff;}
-    .banner .btn-next{left:auto;right:0;}
-    .banner > span:hover{background-color: rgba(255,0,0,0.8);}
-    .banner:hover > span{display: block;}*/
-
-
-
-
-
-
-
-
 
 #row_list {
   height: 270px;

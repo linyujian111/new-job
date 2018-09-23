@@ -2,7 +2,7 @@
 * @Author: Marte
 * @Date:   2018-09-19 09:33:02
 * @Last Modified by:   Marte
-* @Last Modified time: 2018-09-21 22:49:51
+* @Last Modified time: 2018-09-23 13:34:46
 */
 
 $(function(){
@@ -10,6 +10,8 @@ $(function(){
     $('#top').load("../html/login.html .header")
     // 页面的尾部
     $("#bottom").load("../html/login.html .bottom")
+
+console.log($('#checkbox').is(':checked'));
 var $use
 var $psw
 $('.zhuce').on("click",function(){
@@ -19,14 +21,17 @@ $psw=$('.password').val();
     var $psw2=$('.password2').val();
     console.log($psw2,$psw);
     if($psw2!=$psw){
-        alert('两次密码不一致');
+        alert('两次密码不一致。请重新输入');
+        return
+    }else if(!$('#checkbox').is(':checked')){
+        alert('请认真阅读《用户注册协议》打钩再点击注册')
+    return
+    }else if($('#inputEmail3').val()!==$('.yxm').text()){
+        alert("请输入验证码")
         return
     }
-//     else if(!$('#checkbox').checked){
 
-//         alert(111)
-// return
-//     }
+
 
     $.ajax({
         type:'post',
@@ -52,13 +57,20 @@ $('.usertel').on("change",function(){
     }
 })
 
-    // 随机验证码
-$('.yzm').on("click",function(){
-    var idx='';
-    for(var i=0;i<4;i++){
+    // 封装随机验证码
+    function suiji(){
+        var idx='';
+        for(var i=0;i<4;i++){
         idx+=parseInt(Math.random()*4)
+        }
+        $('.yzm').text(idx);
     }
-    $('.yzm').text(idx);
+   
+//页面刷新生成随机验证码
+    suiji();
+//点击刷新生成随机验证码
+$('.yzm').on("click",function(){
+    suiji();
 })
 
 

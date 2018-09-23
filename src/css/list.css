@@ -2,7 +2,7 @@
 * @Author: Marte
 * @Date:   2018-09-19 17:45:36
 * @Last Modified by:   Marte
-* @Last Modified time: 2018-09-20 11:35:00
+* @Last Modified time: 2018-09-23 22:43:53
 */
 .container{
     width:1200px;
@@ -116,9 +116,11 @@
     margin-left:-1px;
     margin-top:10px;
 }
-.main{
+.main.container{
     /*overflow:hidden;*/
     /*margin-left:5px;*/
+    height:1000px;
+    width:1200px;
 }
 .main1{
     margin:-1px;
@@ -270,3 +272,81 @@
         z-index:1;
 }
 
+.section{
+    width:30px;
+    height:800px;
+    background-color:black;
+    position:fixed;
+    right:0;
+    top:0;
+
+}
+
+.section .smcar .car1{
+    display:block;
+    width:30px;
+    height:150px;
+    background-color:skyblue;
+    text-align:center;
+       /* margin:0 auto;
+*/        line-height:30px;
+        margin-top:100px;
+}
+.section .smcar .car2{
+    display:block;
+    width:30px;
+    height:30px;
+    background-color:red;
+    border-radius:50%;
+    text-align:center;
+        margin:0 auto;
+        line-height:30px;
+position:relative;
+left:0;
+top:-50px;
+}
+
+
+.carlist{
+    width:300px;
+    min-height:100px;
+    background-color:green;
+    position:fixed;
+    right:30px;
+    top:100px;
+        margin:5px;
+}
+
+.carlist li{
+    width:500px;
+    height:80px;
+    margin-bottom:5px;
+}
+.carlist .tupian{
+    width:100px;
+    height:80px;
+
+}
+.carlist .tupian img{
+    display:block;
+    width:100px;
+    height:80px;
+}
+.carlist li .biaoti{
+    display:block;
+    width:162px;
+    height:50px;
+    background-color:yellow;
+}
+
+.carlist li .jiage{
+    display:block;
+    width:162px;
+    height:30px;
+    background-color:pink;
+}
+.carlist button{
+    width:300px;
+    height:50px;
+    line-height:50px;
+}

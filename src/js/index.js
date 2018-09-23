@@ -21,7 +21,7 @@ $.ajax({
     dataType:"json",
 
     success:function(res){
-            console.log(res[0].imgurl);
+            // console.log(res[0].imgurl);
   // res是数组
   // 
         // var $rew_list=`
@@ -79,7 +79,7 @@ $.ajax({
     }
 })
 // console.log($("#row_list"))
-console.log($('#floor001'))
+// console.log($('#floor001'))
 $(".floor001").on('click',function(e){
     // $(location).attr('href',"https://www.baidu.com/")
      // var $target=$(e.target);
@@ -100,7 +100,8 @@ console.log(id)
 
 // 轮播图。。。。。。。。。。。。。。。
 let banner = document.getElementsByClassName('banner')[0];
-            let ul = banner.children[0];
+
+            let ul=banner.children[0];
 
             // 初始化
             let index = 0;
